@@ -36,24 +36,7 @@ namespace API
                     policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5001");
                 })
             );
-
-            services.Configure<ApiBehaviorOptions>(options =>
-            {
-                options.InvalidModelStateResponseFactory = ActionContext =>
-                {
-                    var errors = ActionContext.ModelState
-                    .Where(x => x.Value.Errors.Count > 0)
-                    .SelectMany(x => x.Value.Errors)
-                    .Select(x => x.ErrorMessage).ToArray();
-
-                    var errorResponse = new ApiValidationErrorResponse
-                    {
-                        Errors = errors
-                    };
-
-                    return new BadRequestObjectResult(errorResponse);
-                };
-            });
+            services.AddErrorConfig();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
