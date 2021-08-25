@@ -1,0 +1,42 @@
+[
+  {
+    "Name": "Nes",
+    "Description": "کنسول نوستالوژی که برای دوستان دهه شصت خاطرات بسیار زیبایی را یادآوری می کند.",
+    "Price": 1200000,
+    "ImageUrl": "nes.pnd",
+    "ProductTypeId": 2,
+    "ProductBrandId": 1
+  },
+  {
+    "Name": "Snes",
+    "Description": "کنسول بسیار قوی که یک رقیب بزرگ برای کنسول سگا مگادرایو بوده",
+    "Price": 2200000,
+    "ImageUrl": "snes.png",
+    "ProductTypeId": 2,
+    "ProductBrandId": 1
+  },
+  {
+    "Name": "Xbox one s",
+    "Description": "یکی از پر فروش ترین کنسول های ماکروسافت که رقیب پلی استیشن 4 بود",
+    "Price": 12200000,
+    "ImageUrl": "xboxones.png",
+    "ProductTypeId": 2,
+    "ProductBrandId": 2
+  },
+  {
+    "Name": "PlayStation 5",
+    "Description": "یکی از بهترین کنسول های ارائه شده توسط شرکت سونی",
+    "Price": 22200000,
+    "ImageUrl": "ps5.png",
+    "ProductTypeId": 2,
+    "ProductBrandId": 3
+  },
+  {
+    "Name": "Sega MegaDrive",
+    "Description": "یک کنسول نوستالوژی که زمان خود بهترین کنسول بوده و بازی های متنوعی داشته",
+    "Price": 2200000,
+    "ImageUrl": "segaMD.png",
+    "ProductTypeId": 2,
+    "ProductBrandId": 4
+  }
+]
