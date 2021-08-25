@@ -30,6 +30,12 @@ namespace API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
             });
+            services.AddCors(opt =>
+                opt.AddPolicy("CorsPolicy", policy =>
+                {
+                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:5001");
+                })
+            );
 
             services.Configure<ApiBehaviorOptions>(options =>
             {
@@ -40,7 +46,8 @@ namespace API
                     .SelectMany(x => x.Value.Errors)
                     .Select(x => x.ErrorMessage).ToArray();
 
-                    var errorResponse = new ApiValidationErrorResponse { 
+                    var errorResponse = new ApiValidationErrorResponse
+                    {
                         Errors = errors
                     };
 
@@ -55,7 +62,7 @@ namespace API
             app.UseMiddleware<ExceptionMiddelware>();
             if (env.IsDevelopment())
             {
-                
+
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1"));
             }
@@ -65,6 +72,8 @@ namespace API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
 

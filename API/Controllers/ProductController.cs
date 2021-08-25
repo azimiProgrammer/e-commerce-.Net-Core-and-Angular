@@ -1,9 +1,9 @@
-﻿using Core.Contracts.Repository;
+﻿using API.Helper;
+using Core.Contracts.Repository;
 using Core.Entities;
-using Core.Specifications;
+using Core.Specifications.Models.ProductModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace API.Controllers
@@ -16,16 +16,23 @@ namespace API.Controllers
         {
             _productRepository = productRepository;
         }
-        
+
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<List<Product>>> GetProducts()
+        public async Task<ActionResult<Pagination<Product>>> GetProducts([FromQuery] ProductSpecParams productParams)
         {
-            var spec = new ProductWithTypeAndBarandSpecification();
+            var spec = new ProductWithTypeAndBarandSpecification(productParams);
+            var countSpec = new ProductWithFiltersForCountSpecipication(productParams);
 
+            var totalItems = await _productRepository.CountAsync(countSpec);
             var products = await _productRepository.LsitAsync(spec);
-            return Ok(products);
+            return Ok(new Pagination<Product>(
+                productParams.PageNumber,
+                productParams.PageSize,
+                totalItems,
+                products
+           ));
         }
 
         [HttpGet("{id:long}")]
