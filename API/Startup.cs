@@ -24,6 +24,7 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbInit(_configuration);
+            services.AddRegisterDependencyInjection();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
