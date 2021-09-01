@@ -2,6 +2,7 @@ using System.Linq;
 using API.ApplicationBuilder;
 using API.Errors;
 using API.Middelware;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -37,6 +38,7 @@ namespace API
                 })
             );
             services.AddErrorConfig();
+            services.AddAutoMapper(typeof(Startup));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
