@@ -14,3 +14,12 @@
     top:-12px;
     left: 42px;
 }
+
+a{
+    text-decoration: none;
+    color: #bbb;
+    &.active{
+        color: orange;
+
+    }
+}

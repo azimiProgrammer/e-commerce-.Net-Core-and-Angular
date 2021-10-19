@@ -47,9 +47,9 @@
         ></app-paging-header>
 
         <div class="form-inline mt-2">
-          <input class="form-control ml-2" style="width:300px;" placeholder="جستجو" type="text"/>
-          <button class="btn btn-outline-primary mr-2 my-2">جستجو</button>
-          <button class="btn btn-outline-success mr-2 my-2">شروع دوباره</button>
+          <input class="form-control ml-2" style="width:300px;" #search placeholder="جستجو" type="text"/>
+          <button (click)="onSearch()" class="btn btn-outline-primary mr-2 my-2">جستجو</button>
+          <button (click)="onReset()" class="btn btn-outline-success mr-2 my-2">شروع دوباره</button>
         </div>
       </div>
       
