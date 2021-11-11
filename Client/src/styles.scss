@@ -9,3 +9,23 @@
 *{
     text-align: right;
 }
+
+.ngx-breadcrumb-root{
+    padding: 8px 16px;
+    display: inline;
+    border-radius: 0;
+    
+}
+
+.xng-breadcrumb-link{
+    text-decoration: none !important;
+}
+
+label.xng-breadcrumb-trail{
+    margin-bottom: 0;
+    color: orange;
+}
+
+.ngx-breadcrumb-separator{
+    padding: 0 0;
+}

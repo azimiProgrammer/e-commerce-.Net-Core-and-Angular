@@ -6,12 +6,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { ShopComponent } from './shop/shop.component';
 
 const routes: Routes = [
-  {path : '', component : HomeComponent},
-  {path : 'not-found', component : NotFoundComponent},
-  {path : 'server-error', component : NotFoundComponent},
-  {path : '', component : HomeComponent},
-  {path:'shop', loadChildren: () => import("./shop/shop.module").then(mod => mod.ShopModule)},
-  {path:'**', redirectTo: '', pathMatch : 'full'}
+  {path : '', component : HomeComponent, data:{breadcrumb:"صفحه اصلی"}},
+  {path : 'not-found', component : NotFoundComponent, data:{breadcrumb:"سرویس مورد نظر یافت نشد"}},
+  {path : 'server-error', component : NotFoundComponent, data:{breadcrumb:"خطا سرور"}},
+  {path:'shop', loadChildren: () => import("./shop/shop.module").then(mod => mod.ShopModule), data:{breadcrumb:"محصولات"}},
+  {path:'**', redirectTo: 'not-found', pathMatch : 'full'}
 ];
 
 @NgModule({
