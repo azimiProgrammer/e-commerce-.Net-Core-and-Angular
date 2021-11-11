@@ -22,6 +22,7 @@ namespace API.ApplicationBuilder
         public static IServiceCollection AddRegisterDependencyInjection(this IServiceCollection services)
         {
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<IBasketRepository,BasketRepository>();
             return services;
         }
 
