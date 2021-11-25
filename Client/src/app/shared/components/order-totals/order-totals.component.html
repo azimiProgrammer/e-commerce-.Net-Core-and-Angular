@@ -1,0 +1,29 @@
+<div class="bg-light px-4 py-3 text-uppercase font-weight-bold">
+    جمع سفارشات
+</div>
+
+<div class="font-italic mb-4">
+    <p>
+        هزینه حمل نقل با توجه به مکان آدرس وارد شده محاسبه می شود
+    </p> 
+
+    <ul class="list-unstyled mb-4" *ngIf="(basketTotal$ | async)">
+        <li class="d-flex justify-content-between py-3 border-bottom">
+            <strong class="text-muted">جمع سفارشات</strong>
+            <strong>{{(basketTotal$ | async)?.subTotal ?? 0}} تومان</strong>
+        </li>
+        <li class="d-flex justify-content-between py-3 border-bottom">
+            <strong class="text-muted">حمل و نقل</strong>
+            <strong>{{(basketTotal$ | async)?.shipping ?? 0}} تومان</strong>
+        </li>
+        <li class="d-flex justify-content-between py-3 border-bottom">
+            <strong class="text-muted">جمع پرداختی</strong>
+            <strong>{{(basketTotal$ | async)?.total ?? 0}} تومان</strong>
+        </li>
+    </ul>
+</div>
+
+
+
+
+

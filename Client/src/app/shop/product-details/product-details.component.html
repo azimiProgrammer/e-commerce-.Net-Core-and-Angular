@@ -3,10 +3,10 @@
         <h3>{{product.name}}</h3>
         <p>{{product.price}} تومان</p>
         <div class="d-flex justify-content-md-start align-items-center"> 
-            <i class="fa fa-minus-circle text-warning ml-2" style="cursor: pointer; font-size: 2em;"></i>
-            <span class="font-weight-bold" style="font-size: 1.5em;">1</span>
-            <i class="fa fa-plus-circle text-warning mx-2" style="cursor: pointer; font-size: 2em;"></i>
-            <button class="btn btn-outline-secondary btn-lg ml-4">افزودن به سبد خرید</button>
+            <i (click)="decerementQuantity()" class="fa fa-minus-circle text-warning ml-2" style="cursor: pointer; font-size: 2em;"></i>
+            <span class="font-weight-bold" style="font-size: 1.5em;">{{quantity}}</span>
+            <i (click)="incerementQuantity()" class="fa fa-plus-circle text-warning mx-2" style="cursor: pointer; font-size: 2em;"></i>
+            <button (click)="addItemToBasket()" class="btn btn-outline-success btn-lg ml-4">افزودن به سبد خرید</button>
         
         </div>
     </div>

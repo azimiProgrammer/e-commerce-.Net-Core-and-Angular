@@ -10,6 +10,7 @@ const routes: Routes = [
   {path : 'not-found', component : NotFoundComponent, data:{breadcrumb:"سرویس مورد نظر یافت نشد"}},
   {path : 'server-error', component : NotFoundComponent, data:{breadcrumb:"خطا سرور"}},
   {path:'shop', loadChildren: () => import("./shop/shop.module").then(mod => mod.ShopModule), data:{breadcrumb:"محصولات"}},
+  {path:'basket', loadChildren: () => import("./basket/basket.module").then(mod => mod.BasketModule), data:{breadcrumb:"سبد خرید"}},
   {path:'**', redirectTo: 'not-found', pathMatch : 'full'}
 ];
 

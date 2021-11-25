@@ -27,6 +27,7 @@ namespace API
         {
             services.AddDbInit(_configuration);
             services.AddRegisterDependencyInjection();
+            services.AddIdentityService(_configuration);
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -71,6 +72,7 @@ namespace API
 
             app.UseCors("CorsPolicy");
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
