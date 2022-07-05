@@ -49,9 +49,10 @@ namespace API.Controllers
                 DisplayName = registerDto.DisplayName,
                 UserName = registerDto.Email,
                 Email = registerDto.Email,
+                PhoneNumber = registerDto.MobileNumber
             };
-
-            var result = await _userManager.CreateAsync(user, registerDto.Password);
+            _userManager.PasswordValidators.Clear();
+            var result = await _userManager.CreateAsync(user, registerDto.MobileNumber);
 
             if (!result.Succeeded) return BadRequest(new ApiResponse(400));
 
